@@ -9,7 +9,7 @@
 set -eou pipefail
 
 readonly org_name=lacework
-readonly project_name=terraform-gcp-audit-log
+readonly project_name=terraform-aure-ad-application
 readonly git_user="Salim Afiune Maya"
 readonly git_email="afiune@lacework.net"
 VERSION=$(cat VERSION)

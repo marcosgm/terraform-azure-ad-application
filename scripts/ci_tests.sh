@@ -6,7 +6,7 @@
 #
 set -eou pipefail
 
-readonly project_name=terraform-gcp-audit-log
+readonly project_name=terraform-azure-ad-application
 
 TEST_CASES=(
   examples/all-subscriptions-ad-application/
