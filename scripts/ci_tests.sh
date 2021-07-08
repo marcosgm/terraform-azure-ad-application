@@ -9,10 +9,11 @@ set -eou pipefail
 readonly project_name=terraform-azure-ad-application
 
 TEST_CASES=(
-  examples/all-subscriptions-ad-application/
-  examples/custom-ad-application/
-  examples/default-ad-application/
-  examples/skip-creation-ad-application/
+  examples/all-subscriptions-ad-application
+  examples/custom-ad-application
+  examples/default-ad-application
+  examples/management-group
+  examples/skip-creation-ad-application
 )
 
 log() {

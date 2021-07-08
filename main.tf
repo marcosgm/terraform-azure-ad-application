@@ -121,3 +121,15 @@ resource "azuread_application_password" "client_secret" {
   end_date              = "2299-12-31T01:02:03Z"
   depends_on            = [azuread_service_principal.lacework]
 }
+
+data "azurerm_management_group" "default" {
+  count = var.use_management_group ? 1 : 0
+  name  = var.management_group_id
+}
+
+resource "azurerm_role_assignment" "default" {
+  count                = var.use_management_group ? 1 : 0
+  scope                = data.azurerm_management_group.default[0].id
+  principal_id         = local.service_principal_id
+  role_definition_name = "Reader"
+}
