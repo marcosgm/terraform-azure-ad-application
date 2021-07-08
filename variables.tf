@@ -31,7 +31,7 @@ variable "tenant_id" {
 variable "password_length" {
   type        = number
   default     = 30
-  description = "The length of the Lacework AD Application password"
+  description = "[DEPRECATED] The length of the Lacework AD Application password"
 }
 
 # If some of the subscriptions use Key Vault services, we need to the
