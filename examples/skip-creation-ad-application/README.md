@@ -1,5 +1,8 @@
 # Skip Creation of AD Application to Integrate Azure Tenant
+
 The following example shows how to use module inputs to skip the creation of the Azure AD Application.
+
+## Sample Code
 
 ```hcl
 terraform {
@@ -20,7 +23,7 @@ provider "lacework" {}
 
 module "ad_application" {
   source  = "lacework/ad-application/azure"
-  version = "~> 0.1.2"
+  version = "~> 0.1"
   create  = false
 }
 ```

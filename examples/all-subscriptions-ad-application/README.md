@@ -1,5 +1,9 @@
-# AD Application to Integrate Azure Tenant and All Subscriptions 
+# AD Application to Integrate Azure Tenant and All Subscriptions
+
 The following example shows how to deploy a new Azure AD application to integrate an Azure Tenant and all subscriptions with Lacework.
+
+## Sample Code
+
 ```hcl
 terraform {
   required_providers {
@@ -19,7 +23,7 @@ provider "lacework" {}
 
 module "ad_application" {
   source            = "lacework/ad-application/azure"
-  version           = "~> 0.1.2"
+  version           = "~> 0.1"
   all_subscriptions = true
 }
 ```

@@ -21,7 +21,7 @@ locals {
 data "azurerm_subscription" "primary" {}
 resource "azuread_application" "lacework" {
   count           = var.create ? 1 : 0
-  name            = var.application_name
+  display_name    = var.application_name
   identifier_uris = var.application_identifier_uris
 
   // Microsoft Graph
@@ -109,15 +109,21 @@ resource "azurerm_role_assignment" "grant_reader_role_to_subscriptions" {
   role_definition_name = "Reader"
 }
 
-resource "random_password" "generator" {
-  count  = var.create ? 1 : 0
-  length = var.password_length
-}
-
 resource "azuread_application_password" "client_secret" {
   count                 = var.create ? 1 : 0
   application_object_id = azuread_application.lacework[count.index].object_id
-  value                 = random_password.generator[count.index].result
   end_date              = "2299-12-31T01:02:03Z"
   depends_on            = [azuread_service_principal.lacework]
+}
+
+data "azurerm_management_group" "default" {
+  count = var.use_management_group ? 1 : 0
+  name  = var.management_group_id
+}
+
+resource "azurerm_role_assignment" "default" {
+  count                = var.use_management_group ? 1 : 0
+  scope                = data.azurerm_management_group.default[0].id
+  principal_id         = local.service_principal_id
+  role_definition_name = "Reader"
 }

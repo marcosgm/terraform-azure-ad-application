@@ -1,19 +1,19 @@
 variable "create" {
   type        = bool
   default     = true
-  description = "Set to false to prevent the module from creating any resources"
+  description = "Set to `false` to prevent the module from creating any resources"
 }
 
 variable "subscription_ids" {
   type        = list(string)
-  description = "List of subscriptions to grant read access to, by default the module will only use the primary subscription"
+  description = "List of subscriptions to grant read access to. By default the module will only use the primary subscription"
   default     = []
 }
 
 variable "all_subscriptions" {
   type        = bool
   default     = false
-  description = "If set to true, grant read access to ALL subscriptions within the selected Tenant (overrides 'subscription_ids')"
+  description = "If set to `true`, grant read access to ALL subscriptions within the selected Tenant (overrides `subscription_ids`)"
 }
 
 variable "application_name" {
@@ -31,7 +31,7 @@ variable "tenant_id" {
 variable "password_length" {
   type        = number
   default     = 30
-  description = "The length of the Lacework AD Application password"
+  description = "[DEPRECATED] The length of the Lacework AD Application password"
 }
 
 # If some of the subscriptions use Key Vault services, we need to the
@@ -47,4 +47,16 @@ variable "application_identifier_uris" {
   type        = list(string)
   description = "A list of user-defined URI(s) for the Lacework AD Application"
   default     = []
+}
+
+variable "use_management_group" {
+  type        = bool
+  default     = false
+  description = "If set to `true`, the AD Application will be set up to leverage a Management Group"
+}
+
+variable "management_group_id" {
+  type        = string
+  default     = ""
+  description = "The ID of the Management Group"
 }
