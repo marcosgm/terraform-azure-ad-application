@@ -8,6 +8,7 @@ locals {
   service_principal_id = var.create ? (
     length(azuread_service_principal.lacework) > 0 ? azuread_service_principal.lacework[0].object_id : ""
   ) : ""
+  tenant_id = length(var.tenant_id) > 0 ? var.tenant_id : data.azuread_client_config.current.tenant_id #for output
 }
 
 data "azuread_client_config" "current" {}
