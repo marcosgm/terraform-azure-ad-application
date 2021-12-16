@@ -1,5 +1,7 @@
 <a href="https://lacework.com"><img src="https://techally-content.s3-us-west-1.amazonaws.com/public-content/lacework_logo_full.png" width="600"></a>
 
+[![IaC](https://app.soluble.cloud/api/v1/public/badges/8df62eb8-c1a1-4cbd-9aac-0d4d598b7145.svg)](https://app.soluble.cloud/repos/details/github.com/marcosgm/terraform-azure-ad-application)  
+
 # terraform-azure-ad-application
 
 [![GitHub release](https://img.shields.io/github/release/lacework/terraform-azure-ad-application.svg)](https://github.com/lacework/terraform-azure-ad-application/releases/)
