@@ -3,6 +3,11 @@ output "created" {
   description = "Was the Active Directory Application created"
 }
 
+output "enable_directory_reader" {
+  value       = var.enable_directory_reader
+  description = "Was the Active Directory Application granted Directory Reader role in Azure AD?"
+}
+
 output "application_password" {
   value       = local.application_password
   description = "The Lacework AD Application password"
