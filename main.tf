@@ -25,6 +25,7 @@ resource "azuread_application" "lacework" {
 }
 
 resource "azuread_directory_role" "dir_reader" {
+  count        = var.create ? (var.enable_directory_reader? 1 : 0 ) : 0
   display_name = "Directory Readers"
 }
 
@@ -45,8 +46,8 @@ resource "azuread_application_password" "client_secret" {
 #
 # => https://docs.microsoft.com/en-us/azure/active-directory/roles/permissions-reference#directory-readers
 resource "azuread_directory_role_assignment" "lacework_dir_reader" {
-  count               = var.create ? 1 : 0
-  role_id             = azuread_directory_role.dir_reader.template_id
+  count               = var.create ? (var.enable_directory_reader? 1 : 0 ) : 0  
+  role_id             = azuread_directory_role.dir_reader[count.index].template_id
   principal_object_id = local.service_principal_id
   depends_on          = [azuread_service_principal.lacework]
 }
