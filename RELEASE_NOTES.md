@@ -1,9 +1,9 @@
 # Release Notes
-Another day, another release. These are the release notes for the version `v1.1.0`.
+Another day, another release. These are the release notes for the version `v1.2.0`.
 
 ## Features
-* feat: Add variable to override AD Application owners (#35) (cgraf-spiria)([19b12e6](https://github.com/lacework/terraform-azure-ad-application/commit/19b12e6b517c4f1dec4760023907952942b0f57d))
-## Documentation Updates
-* docs: be explicit about where inputs got moved (#36) (Salim Afiune)([ff13b48](https://github.com/lacework/terraform-azure-ad-application/commit/ff13b48d553be37d575fdfd1027e9d03a4d23e82))
+* feat: deprecate support for Terraform 0.12 and 0.13 (Darren Murray)([9f5311d](https://github.com/lacework/terraform-azure-ad-application/commit/9f5311d5e325b590d6933872d8d0c22275f638a3))
+## Bug Fixes
+* fix(deps): updating azuread and migrating from deprecated resource (#40) (Alan Nix)([ecead47](https://github.com/lacework/terraform-azure-ad-application/commit/ecead477b1423609d571bfda3b54a77f26f67742))
 ## Other Changes
-* ci: version bump to v1.0.1-dev (Lacework)([5aac26a](https://github.com/lacework/terraform-azure-ad-application/commit/5aac26a8fbce6885bc63d37afbd3049f3f69ab74))
+* ci: version bump to v1.1.1-dev (Lacework)([d2908bd](https://github.com/lacework/terraform-azure-ad-application/commit/d2908bd1f7f841832fcad9a7b7e67b960336c9d4))
